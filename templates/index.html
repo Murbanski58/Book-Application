@@ -1,5 +1,5 @@
 {% extends 'base.html' %} {% block body %}
-<h2>Digital Product Management - Web Form Template</h2>
+<h2>Add a book to my library</h2>
 <hr />
 <main>
   <form action="/add" method="POST">
@@ -81,30 +81,34 @@
       </label>
     </p>
 
-    <p><input type="add-book" id="add-book" value="Add Book" /></p>
+    <p><input type="submit" id="add-book" value="Add Book" /></p>
   </form>
 
   <br /><br />
-  {% if friends %}
+  {% if book %}
   <h3>Book List</h3>
   <hr />
   <table border="1">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Favorite Ice Cream</th>
-        <th>Read for Fun</th>
-        <th>Favorite Activities</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Classification</th>
+        <th>Details</th>
+        <th>Acquisition</th>
       </tr>
     </thead>
 
     <tbody>
-      {% for friend in friends %}
+      {% for book in books %}
       <tr>
-        <td>{{ friend.name }}</td>
-        <td>{{ friend.flavor }}</td>
-        <td>{{ friend.read }}</td>
-        <td>{{ friend.activities }}</td>
+        <td>{{ title }}</td>
+        <td>{{ author }}</td>
+        <td>{{ pages }}</td>
+        <td>{{ classification }}</td>
+        <td>{{ details }}</td>
+        <td>{{ acquisition }}</td>
       </tr>
       {% endfor %}
     </tbody>

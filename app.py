@@ -2,15 +2,15 @@ from flask import Flask, request, render_template, redirect, url_for
 
 app = Flask(__name__)
 
-friend_list = [
-    {"name": "Test", "flavor": "swirl", "read": "yes", "activities": "reading"}
+book_list = [
+    {"title": "The Hobbit", "Author": "J.R.R Tolkien", "Pages": "295", "Classification": "fiction", "Details":"read, recommend", "Acquisition": "library"}
 ]
 
 
 @app.route("/", methods=["GET", "POST"])
 def index():
     return render_template(
-        "index.html", pageTitle="Web form template", friends=friend_list
+        "index.html", pageTitle="Home Page", books=book_list
     )
 
 
@@ -21,29 +21,40 @@ def add():
 
         form = request.form
 
-        fname = form["fname"]
-        flavor = form["flavor"]
-        read = form["read"]
-        # activities = form["activites"]
-        # print(request.form.getlist("activites"))
-        print(fname)
-        print(flavor)
-        print(read)
-        # print(activities)
+        title = form["title"]
+        author = form["author"]
+        pages = form["pages"]
+        classification = form["classification"]
+        acquisition = form["acquisition"]
+        # details = form["details"]
+        # print(request.form.getlist("details"))
+        print(title)
+        print(author)
+        print(pages)
+        print(classification)
+        print(acquisition)
+        # print(details)
 
-        friend_dict = {
-            "name": fname,
-            "flavor": flavor,
-            "read": read,
-            #   "activities": activities,
+        book_dict = {
+            "Title": title,
+            "Author": author,
+            "Pages": pages,
+            "Classification": classification,
+            #   "Details": details,
+            "Acquisition": acquisition,
         }
-        print(friend_dict)
-        friend_list.append(friend_dict)
-        print(friend_list)
+        print(book_dict)
+        book_list.append(book_dict)
+        print(book_list)
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
-
+    
+@app.route("/about")
+def about():
+    return render_template(
+        "about.html", pageTitle="About Page"
+    )
 
 if __name__ == "__main__":
     app.run(debug=True)

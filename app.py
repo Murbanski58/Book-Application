@@ -26,21 +26,24 @@ def add():
         pages = form["pages"]
         classification = form["classification"]
         acquisition = form["acquisition"]
-        # details = form["details"]
-        # print(request.form.getlist("details"))
+        details = form.getlist("details")
+
+       
         print(title)
         print(author)
         print(pages)
         print(classification)
         print(acquisition)
-        # print(details)
+        print(details)
+
+        details_string = ",".join(details)
 
         book_dict = {
             "Title": title,
             "Author": author,
             "Pages": pages,
             "Classification": classification,
-            #   "Details": details,
+            "Details": details,
             "Acquisition": acquisition,
         }
         print(book_dict)

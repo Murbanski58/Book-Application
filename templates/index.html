@@ -85,7 +85,7 @@
   </form>
 
   <br /><br />
-  {% if book %}
+  {% if books %}
   <h3>Book List</h3>
   <hr />
   <table border="1">
@@ -103,12 +103,12 @@
     <tbody>
       {% for book in books %}
       <tr>
-        <td>{{ title }}</td>
-        <td>{{ author }}</td>
-        <td>{{ pages }}</td>
-        <td>{{ classification }}</td>
-        <td>{{ details }}</td>
-        <td>{{ acquisition }}</td>
+        <td>{{ book.title }}</td>
+        <td>{{ book.author }}</td>
+        <td>{{ book.pages }}</td>
+        <td>{{ book.classification }}</td>
+        <td>{{ book.details }}</td>
+        <td>{{ book.acquisition }}</td>
       </tr>
       {% endfor %}
     </tbody>

@@ -28,13 +28,6 @@ def add():
         acquisition = form["acquisition"]
         details = form.getlist("details")
 
-       
-        print(title)
-        print(author)
-        print(pages)
-        print(classification)
-        print(acquisition)
-        print(details)
 
         details_string = ",".join(details)
 
@@ -53,7 +46,7 @@ def add():
     else:
         return redirect(url_for("index"))
     
-@app.route("/about")
+@app.route("/about", methods=["GET"])
 def about():
     return render_template(
         "about.html", pageTitle="About Page"

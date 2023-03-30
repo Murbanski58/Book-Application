@@ -9,3 +9,13 @@ input[type="text"] {
   margin-left: 1em;
   margin-bottom: 0.5em;
 }
+
+.form-check-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+
+.container {
+  width:100%;
+}

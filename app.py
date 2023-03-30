@@ -56,11 +56,7 @@ def add():
         print(book_dict)
         book_list.append(book_dict)
         print(book_list)
-        <div class="alert alert-success" role="alert">
-        Record successfully added!
-        flash('Record successfully added.' category = "success")
-        </div>
-        \
+        flash('Record successfully added.')
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))

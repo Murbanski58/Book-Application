@@ -2,9 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash
 
 app = Flask(__name__)
 
-app.config.update(
-    SECRET_KEY = "bananas"
-)
+app.config["SECRET_KEY"] = "bansdfgsgndsndhmdhmdmhp9870978687645anas"
 
 book_list = [
     {"title": "The Hobbit", "author": "J.R.R Tolkien", "pages": "295", "classification": "fiction", "details":"read, recommend", "acquisition": "library"}
@@ -36,12 +34,16 @@ def add():
         form = request.form
 
         title = form["title"]
+        
         author = form["author"]
         pages = form["pages"]
+        
         classification = form["classification"]
+        print(classification)
         acquisition = form["acquisition"]
+        print(acquisition)
         details = form.getlist("details")
-
+        print(details)
 
         details_string = ",".join(details)
 
@@ -56,7 +58,7 @@ def add():
         print(book_dict)
         book_list.append(book_dict)
         print(book_list)
-        flash('Record successfully added.')
+        flash('Success! Your book has been added successfully', 'success')
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))

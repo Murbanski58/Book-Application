@@ -11,12 +11,10 @@
 
   <body>
     <div class="container">
-    <nav>
-      <a href="./">Book Survey</a> |
-      <a href="./about">About Us!</a>
-    </nav>
-  
-    
+      <nav>
+        <a href="./">Book Survey</a> |
+        <a href="./about">About Us!</a>
+      </nav>
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
           {% for category, message in messages %} 
